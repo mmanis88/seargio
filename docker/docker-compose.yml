@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    image: <your-backend-image>  # Replace this with the Docker image of your backend app
+    environment:
+      - ELASTICSEARCH_URL=https://your-opensearch-endpoint  # Replace with your actual Elasticsearch endpoint
+    ports:
+      - "80:5000"  # Assuming your app runs on port 5000 inside the container
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
